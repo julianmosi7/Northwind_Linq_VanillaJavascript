@@ -1,0 +1,90 @@
+body {
+    background-color: #eee;
+}
+
+.error {
+    background-color: red;
+}
+
+.ok {
+    background-color: #0c0;
+}
+
+.test-duration {
+    font-style: italic;
+    font-weight: normal;
+    padding-left: 0.5em;
+    color: blue;
+    float: right;
+    padding-right: 0.3em;
+}
+
+.test-heading {
+    font-size: 1.3em;
+    font-weight: bold;
+    float: left;
+    padding-left: 0.3em;
+}
+
+.test-title {
+    background-color: #000;
+    color: #eee;
+    font-size: 2em;
+    font-weight: bold;
+    float: left;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+.passed {
+    font-size: 2em;
+    font-weight: bold;
+    float: right;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+#results {
+    clear: both;
+    padding-top: 1em;
+    background-color: lightgray;
+}
+
+.results {
+    clear: both;
+}
+
+    .results span {
+        padding-left: 0.3em;
+        padding-right: 0.3em;
+    }
+
+#output {
+    margin: 1em;
+}
+
+#msgs {
+    background-color: lightgray;
+}
+
+.msg {
+    margin-top: -10px;
+}
+
+    .msg pre {
+        font-size: 9pt;
+    }
+
+    .msg .error {
+        background-color: red;
+        color: white;
+    }
+
+.sub-error:first-child {
+    padding-left: 0.3em;
+    margin-right:2em;
+}
+
+.sub-error:not(:first-child) {
+    margin-left: 2em;
+}

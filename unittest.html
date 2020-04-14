@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="unitApp">
+
+<head>
+  <meta charset="utf-8" />
+  <title>LINQ test</title>
+  <link href="unittest.css"
+        rel="stylesheet" />
+</head>
+
+<body ng-controller="unitController">
+  <section id="header">
+    <span class="test-title">Test results [<span ng-bind="now | date:'yyyy-MM-dd HH:mm:ss'">Check console for
+        errors!</span>]</span>
+    <span><input type="checkbox"
+             ng-model="ShowLogs" />Show Logs</span>
+    <span class="passed"
+          ng-class="{error:passed!=tests.length,ok:passed==tests.length}">{{passed}}/{{tests.length}} passed</span>
+  </section>
+  <section id="results">
+    <hr />
+    <div ng-repeat="test in tests">
+      <div><span class="test-heading">{{test.Name}}</span> <span class="test-duration">Duration:
+          {{test.Duration|date:'ss.sss'}} sec</span></div>
+      <ul class="results">
+        <li ng-repeat="result in test.Results">
+          <div ng-if="result.indexOf('-->')>=0">
+            <div ng-repeat="item in result.split('-->')"
+                 class="sub-error">
+              <span
+                    ng-class="{error:$index==0&&!result.endsWith('OK'),ok:$index==0&&result.endsWith('OK')}">{{item}}</span>
+            </div>
+          </div>
+          <span ng-if="result.indexOf('-->')<0"
+                ng-class="{error:!result.endsWith('OK'),ok:result.endsWith('OK')}">{{result}}</span>
+        </li>
+      </ul>
+      <hr />
+    </div>
+  </section>
+  <section id="output">
+    <h2>Logs</h2>
+    <p id="msgs"></p>
+  </section>
+  <script>
+    useConsoleMonkeyPatch = true;
+  </script>
+  <script src="unittest.all.min.js"></script>
+
+  <script src="data.js"></script>
+  <script src="queries.js"></script>
+  <script src="unittest.tests.js"></script>
+</body>
+
+</html>
